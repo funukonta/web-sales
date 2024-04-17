@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: web_sales_postgres
+    environment:
+      - POSTGRES_PASSWORD=web-sales
+    ports:
+      - '5432:5432'
+    expose:
+      - 5432
+    networks:
+      - websales-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: websales_app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - websales-network
+    ports:
+      - '8000:8000'
+    expose:
+      - 8000
+    env_file:
+      - cmd/.env
+
+networks:
+  websales-network:
+    driver: bridge
