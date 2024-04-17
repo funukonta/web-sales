@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "51f0faad-af1f-4b1d-a5f8-a97efa37081f",
+		"name": "Web-Sales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13879894",
+		"_collection_link": "https://web.postman.co/workspace/Team-Workspace~cc9a5a47-8c51-463c-8db2-a772842d88b0/collection/13879894-51f0faad-af1f-4b1d-a5f8-a97efa37081f?action=share&source=collection_link&creator=13879894"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"evanroy@gmail.com\",\n    \"name\":\"evan roy\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startdate\":\"2024-04-15\",\n    \"enddate\":\"2024-04-18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/sales/report",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sales",
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"evanroy36@gmail.com\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Input Sales",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"evanroy36@gmail.com\",\n    \"sales_type\":\"Jasa\",\n    \"transactionDate\":\"2024-04-17\",\n    \"nominal\":99000\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/sales/input",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sales",
+						"input"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logOut",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
