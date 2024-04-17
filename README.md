@@ -6,6 +6,8 @@ Web sales App - E commerce API developed with golang std lib.
 
 using docker compose
 ```bash
+$ git clone https://github.com/funukonta/web-sales
+$ cd web-sales/
 $ docker compose up -d
 ```
 
